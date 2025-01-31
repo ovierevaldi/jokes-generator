@@ -58,8 +58,8 @@ const JokeSettings = ({isModalOpen, requestCloseModal} : JokeSettingsProp) => {
                             }
                         </select>
 
-                        <p>Generated Joke(s)</p>
-                        <input min={1} type="number" className="outline outline-black rounded-md px-2" defaultValue={1} onChange={(e) => changeGeneratedJokeAmount(e.target.value)}/>
+                        {/* <p>Generated Joke(s)</p>
+                        <input min={1} type="number" className="outline outline-black rounded-md px-2" defaultValue={1} onChange={(e) => changeGeneratedJokeAmount(e.target.value)}/> */}
                     </div>
                     <button 
                         onClick={onCloseBtnClicked}
