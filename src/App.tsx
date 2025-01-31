@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './App.css'
 import JokeAPI, { JokeProp } from './libs/joke-api';
 import JokeSettings from './components/JokeSettings';
 import { IoMdSettings } from 'react-icons/io';
+import { AppContext } from './context/AppContext';
 
 function App() {
+  const appContext = useContext(AppContext);
+
   const [isJokeGenerated, setIsJokeGenerated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentJoke, setCurrentJoke] = useState<Partial<JokeProp>>();
@@ -12,7 +15,7 @@ function App() {
 
   const generateJoke = async() => {
     setIsLoading(true);
-    const result = await JokeAPI().generateRandomJoke();
+    const result = await JokeAPI().generateRandomJoke(appContext?.currentJokeType || 'random');
     
     if(typeof result === 'object'){
       setIsJokeGenerated(true);
@@ -29,11 +32,12 @@ function App() {
   return (
     <div className='grid place-items-center h-screen'>
       <p className='text-4xl'>Jokes Generator</p>
-
+      
       {
         isLoading ? (<p>Loading...</p>) 
         : isJokeGenerated ? (
           <div className="text-center flex flex-col gap-y-8">
+            <p> {currentJoke?.type} </p>
             <p className="text-3xl">{currentJoke?.setup}</p>
             <p className="text-4xl">{currentJoke?.punchline}</p>
           </div>
