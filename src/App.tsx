@@ -31,15 +31,14 @@ function App() {
 
   return (
     <div className='grid place-items-center h-screen'>
-      <p className='text-4xl'>Jokes Generator</p>
+      <p className='text-4xl md:text-6xl'>Jokes Generator</p>
       
       {
         isLoading ? (<p>Loading...</p>) 
         : isJokeGenerated ? (
           <div className="text-center flex flex-col gap-y-8">
-            <p> {currentJoke?.type} </p>
-            <p className="text-3xl">{currentJoke?.setup}</p>
-            <p className="text-4xl">{currentJoke?.punchline}</p>
+            <p className="text-3xl md:text-5xl">{currentJoke?.setup}</p>
+            <p className="text-4xl md:text-6xl">{currentJoke?.punchline}</p>
           </div>
         ) : (
           <p className="text-4xl">Generate Some Jokes</p>
@@ -47,7 +46,7 @@ function App() {
       }
 
       <button 
-        className='bg-white hover:bg-gray-300 cursor-pointer text-black p-4 text-2xl rounded-lg'
+        className='bg-white hover:bg-gray-300 cursor-pointer text-black p-4 text-2xl md:text-4xl md:p-6 rounded-lg'
         onClick={generateJoke}
       >
         Generate
@@ -55,7 +54,7 @@ function App() {
 
       <button
           onClick={openSettingsModal} 
-          className="absolute bottom-0 right-0 text-4xl p-2 bg-white text-black rounded-lg mb-2 mr-2 hover:bg-gray-200 cursor-pointer">
+          className="absolute bottom-0 right-0 text-4xl md:text-6xl p-2 md:p-3 bg-white text-black rounded-lg mb-2 mr-2 hover:bg-gray-200 cursor-pointer">
           <IoMdSettings />
       </button>
       
