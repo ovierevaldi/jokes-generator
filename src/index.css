@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+:root {
+  background-color: #00C607;
+  font-family: "Barriecito", serif;
+  color: #FFF;
+}
