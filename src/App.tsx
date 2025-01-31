@@ -34,7 +34,7 @@ function App() {
       <p className='text-4xl md:text-6xl'>Jokes Generator</p>
       
       {
-        isLoading ? (<p>Loading...</p>) 
+        isLoading ? (<p className='text-3xl'>Loading...</p>) 
         : isJokeGenerated ? (
           <div className="text-center flex flex-col gap-y-8">
             <p className="text-3xl md:text-5xl">{currentJoke?.setup}</p>
