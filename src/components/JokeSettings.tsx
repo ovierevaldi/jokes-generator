@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import JokeAPI, { JokeType } from "../libs/joke-api";
-import { AppContext, AppProvider } from "../context/AppContext";
+import { AppContext } from "../context/AppContext";
 
 type JokeSettingsProp = {
     isModalOpen: boolean,
@@ -16,9 +16,9 @@ const JokeSettings = ({isModalOpen, requestCloseModal} : JokeSettingsProp) => {
         requestCloseModal();
     };
 
-    const changeGeneratedJokeAmount = (value: string) => {
-        appContext?.changeCurrentAmountJokeGenerated(parseInt(value));
-    };
+    // const changeGeneratedJokeAmount = (value: string) => {
+    //     appContext?.changeCurrentAmountJokeGenerated(parseInt(value));
+    // };
 
     const changeJokeType = (type: string) => {
         appContext?.changeCurrentJokeType(type);
